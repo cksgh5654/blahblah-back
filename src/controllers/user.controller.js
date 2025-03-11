@@ -1,9 +1,5 @@
 const { withAuth } = require("../middleware/auth.middleware");
-const {
-  findUserByEmail,
-  findUserByNickname,
-  updateUserById,
-} = require("../services/user.service");
+const { findUserByEmail, updateUserById } = require("../services/user.service");
 const userController = require("express").Router();
 
 userController.get("/me", withAuth, async (req, res) => {

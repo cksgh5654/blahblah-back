@@ -21,10 +21,6 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    views: {
-      type: Number,
-      required: false,
-    },
     deletedAt: {
       type: Date,
       default: null,
