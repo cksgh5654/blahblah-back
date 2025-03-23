@@ -114,27 +114,25 @@ const getBoardDataByUrl = async (data) => {
       throw new Error("보드가 없습니다");
     }
 
-    const [basicPosts, notificationPosts] = await Promise.all([
-      Post.find({
-        board: board._id,
-        deletedAt: null,
-        type: "basic",
-      })
-        .skip(skip)
-        .limit(limit)
-        .populate("creator")
-        .lean(),
+    const basicPosts = await Post.find({
+      board: board._id,
+      deletedAt: null,
+      type: "basic",
+    })
+      .skip(skip)
+      .limit(limit)
+      .populate("creator")
+      .lean();
 
-      await Post.find({
-        board: board._id,
-        deletedAt: null,
-        type: "notification",
-      })
-        .skip(skip)
-        .limit(limit)
-        .populate("creator")
-        .lean(),
-    ]);
+    const notificationPosts = await Post.find({
+      board: board._id,
+      deletedAt: null,
+      type: "notification",
+    })
+      .skip(skip)
+      .limit(limit)
+      .populate("creator")
+      .lean();
 
     const totalPostCount = {
       basic: 0,

@@ -6,7 +6,6 @@ const {
   getBoardsByCategoryName,
   getBoardById,
   getBoardByManagerId,
-  getBoardDataByUrAndUserId,
   getBoardByName,
   getBoardId,
   getAllBoardsByCatogoryName,

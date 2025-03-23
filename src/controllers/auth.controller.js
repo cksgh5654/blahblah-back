@@ -63,7 +63,7 @@ authController.get("/google-oauth-redirect", async (req, res) => {
         httpOnly: true,
         path: "/",
       });
-      res.redirect(config.app.frontEndPoint);
+      return res.json({ isError: false, message: "구글 로그인 성공" });
     }
   } catch (error) {
     console.log(error);
